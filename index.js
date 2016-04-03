@@ -1,3 +1,5 @@
+global.log = console.log.bind(console);
+require('dotenv').load();
 var awsIot = require('aws-iot-device-sdk');
 
 //
@@ -9,9 +11,9 @@ var awsIot = require('aws-iot-device-sdk');
 // be terminated.
 //
 var device = awsIot.device({
-    keyPath: '../../certs/private.pem.key',
-    certPath: '../../certs/certificate.pem.crt',
-    caPath: '../../certs/root-CA.pem',
+    keyPath: process.env.AWS_IOT_PRIVATE_KEY,
+    certPath: process.env.AWS_IOT_CLIENT_CERT,
+    caPath: process.env.AWS_IOT_CA_CERT,
     clientId: 'rpi1',
     region: 'us-east-1'
 });
