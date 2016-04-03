@@ -34,6 +34,7 @@ device
 
 device
     .on('message', function(topic, payload) {
+        payload = JSON.parse(payload.toString());
         log('got payload for topic "' + topic + '"');
         log(payload);
     });
