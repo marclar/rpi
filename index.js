@@ -2,8 +2,7 @@ global.log = console.log.bind(console);
 require('dotenv').load();
 
 var awsIot = require('aws-iot-device-sdk');
-var fs = require('fs');
-var path = require('path');
+var ctrl = require('ctrl');
 
 //
 // Replace the values of '<YourUniqueClientIdentifier>' and '<YourAWSRegion>'
@@ -36,10 +35,17 @@ device
     .on('message', function(topic, payload) {
         try{
             payload = JSON.parse(payload.toString());
-            log('got ' + (typeof payload) + ' payload for topic "' + topic + '"');
-            log(payload);
+            ctrl.handle(payload, function(err, result){
+                if(err){
+                    console.error('Error from ctrl.handle', err);
+                }
+                else if(result){
+                    console.log('Result from ctrl.handle', result);
+                }
+            });
         }
         catch(e){
             console.error('Error parsing payload', e);
         }
     });
+
