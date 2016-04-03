@@ -1,18 +1,18 @@
 var email = require('emailjs');
-
-var server = email.server.connect({
-    user: process.env.GMAIL_USERNAME,
-    password: process.env.GMAIL_PASSWORD,
-    host: 'smtp.gmail.com',
-    port: 587,
-    ssl: true
-});
+var nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport([
+    'smtps://',
+    encodeURIComponent(process.env.GMAIL_USERNAME),
+    ':',
+    process.env.GMAIL_USERNAME,
+    '@smtp.gmail.com'
+].join(''));
 
 module.exports = {
 
     send: function(msg, cb){
 
-        server.send({
+        transporter.sendMail({
             from: process.env.GMAIL_USERNAME,
             to: msg.to,
             subject: msg.subject,
