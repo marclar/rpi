@@ -27,7 +27,7 @@ var device = awsIot.device({
 device
     .on('connect', function() {
         log('connected...');
-        device.subscribe('topic_1');
+        device.subscribe('rpi');
         //device.publish('topic_2', JSON.stringify({ test_data: 1}));
     });
 
