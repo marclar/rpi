@@ -2,7 +2,7 @@ global.log = console.log.bind(console);
 require('dotenv').load();
 
 var awsIot = require('aws-iot-device-sdk');
-var ctrl = require('ctrl');
+var ctrl = require('./ctrl');
 
 //
 // Replace the values of '<YourUniqueClientIdentifier>' and '<YourAWSRegion>'
