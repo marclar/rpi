@@ -34,7 +34,12 @@ device
 
 device
     .on('message', function(topic, payload) {
-        payload = payload.toString();
-        log('got ' + (typeof payload) + ' payload for topic "' + topic + '"');
-        log(payload);
+        try{
+            payload = JSON.parse(payload.toString());
+            log('got ' + (typeof payload) + ' payload for topic "' + topic + '"');
+            log(payload);
+        }
+        catch(e){
+            console.error('Error parsing payload', e);
+        }
     });
