@@ -1,6 +1,9 @@
 global.log = console.log.bind(console);
 require('dotenv').load();
+
 var awsIot = require('aws-iot-device-sdk');
+var fs = require('fs');
+var path = require('path');
 
 //
 // Replace the values of '<YourUniqueClientIdentifier>' and '<YourAWSRegion>'
@@ -24,12 +27,13 @@ var device = awsIot.device({
 //
 device
     .on('connect', function() {
-        console.log('connected...');
+        log('connected...');
         device.subscribe('topic_1');
         //device.publish('topic_2', JSON.stringify({ test_data: 1}));
     });
 
 device
     .on('message', function(topic, payload) {
-        console.log('got message:', topic, payload.toString());
+        log('got payload for topic "' + topic + '"');
+        log(payload);
     });
