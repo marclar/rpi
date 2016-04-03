@@ -35,6 +35,7 @@ device
     .on('message', function(topic, payload) {
         try{
             payload = JSON.parse(payload.toString());
+            log('payload:', payload);
             ctrl.handle(payload, function(err, result){
                 if(err){
                     console.error('Error from ctrl.handle', err);
