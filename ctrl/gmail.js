@@ -1,4 +1,3 @@
-var email = require('emailjs');
 var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport([
     'smtps://',
