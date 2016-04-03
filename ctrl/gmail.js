@@ -3,7 +3,8 @@ var email = require('emailjs');
 var server = email.server.connect({
     user: process.env.GMAIL_USERNAME,
     password: process.env.GMAIL_PASSWORD,
-    host: 'smtp.gmail.com:587',
+    host: 'smtp.gmail.com',
+    port: 587,
     ssl: true
 });
 
