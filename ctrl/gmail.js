@@ -3,7 +3,7 @@ var transporter = nodemailer.createTransport([
     'smtps://',
     encodeURIComponent(process.env.GMAIL_USERNAME),
     ':',
-    process.env.GMAIL_USERNAME,
+    process.env.GMAIL_PASSWORD,
     '@smtp.gmail.com'
 ].join(''));
 
