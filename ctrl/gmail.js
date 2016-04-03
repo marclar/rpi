@@ -9,13 +9,13 @@ var server = email.server.connect({
 
 module.exports = {
 
-    send: function(to, subject, text, cb){
+    send: function(msg, cb){
 
         server.send({
             from: process.env.GMAIL_USERNAME,
-            to: to,
-            subject: subject,
-            text: text
+            to: msg.to,
+            subject: msg.subject,
+            text: msg.text
         }, cb);
 
     }
