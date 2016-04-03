@@ -4,7 +4,7 @@ module.exports = {
     handle: function(msg, cb){
         try{
             if(!msg || !msg.ctrl || !msg.action){
-                console.error('Missing required "msg" parameter with "ctrl" and "action" proprties', msg);
+                console.error('Missing required "msg" parameter with "ctrl" and "action" properties', msg);
             }
             else{
                 var handler = require('./'+msg.ctrl+'.js');

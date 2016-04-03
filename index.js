@@ -33,6 +33,7 @@ device
 
 device
     .on('message', function(topic, payload) {
+        log('message ---------------------------------\n\n');
         try{
             payload = JSON.parse(payload.toString());
             log('payload:', payload);
