@@ -1,9 +1,9 @@
 'use strict';
 require('dotenv').load({silent: true});
 
-const _ = require('lodash');
-const huebot = require('huebot');
-const Promise = require('bluebird');
+var _ = require('lodash');
+var huebot = require('huebot');
+var Promise = require('bluebird');
 
 
 module.exports = {

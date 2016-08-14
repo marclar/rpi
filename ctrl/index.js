@@ -1,6 +1,6 @@
 'use strict';
-const _ = require('lodash');
-const Promise = require('bluebird');
+var _ = require('lodash');
+var Promise = require('bluebird');
 
 
 module.exports = {

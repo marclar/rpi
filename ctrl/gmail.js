@@ -1,11 +1,11 @@
 'use strict';
 require('dotenv').load({silent: true});
 
-const _ = require('lodash');
-const nodemailer = require('nodemailer');
-const Promise = require('bluebird');
+var _ = require('lodash');
+var nodemailer = require('nodemailer');
+var Promise = require('bluebird');
 
-const transporter = Promise.promisifyAll(nodemailer.createTransport([
+var transporter = Promise.promisifyAll(nodemailer.createTransport([
     'smtps://',
     encodeURIComponent(process.env.GMAIL_USERNAME),
     ':',

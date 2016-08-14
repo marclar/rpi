@@ -1,10 +1,10 @@
 'use strict';
 require('dotenv').load({silent: true});
 
-const _ = require('lodash');
-const awsIot = require('aws-iot-device-sdk');
-const ctrl = require('./ctrl');
-const log = console.log;
+var _ = require('lodash');
+var awsIot = require('aws-iot-device-sdk');
+var ctrl = require('./ctrl');
+var log = console.log;
 
 var clientId = 'rpi1';
 
