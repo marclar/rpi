@@ -36,7 +36,10 @@ thingShadow.on('delta', function(thingName, delta) {
     log('\n\nreceived delta '+' on '+thingName+': ', JSON.stringify(delta, 0, 2));
     ctrl.handle(delta.state)
         .then(function(result){
-            log('ctrl handled delta, result: ', result);
+            log('ctrl handled `delta` event, result: ', result);
+        })
+        .catch(function(e){
+            console.error(e);
         });
 });
 
