@@ -2,6 +2,7 @@
 
 console.log('\n\n\n');
 console.log('__dirname:', __dirname);
+console.log(require('path').resolve(__dirname, './certs/rpi-private.pem.key'));
 console.log('\n\n\n');
 
 var _ = require('lodash');
