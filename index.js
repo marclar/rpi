@@ -1,10 +1,17 @@
 'use strict';
+
+//HACK! Load "HUEBOT_ID" since dotenv doesn't seem to work on the rpi
+process.env.HUEBOT_ID = require('fs').readFileSync(require('path').resolve(__dirname, './HUEBOT_ID.txt')).toString();
+
 var _ = require('lodash');
 var awsIot = require('aws-iot-device-sdk');
 var ctrl = require('./ctrl');
 var log = console.log;
 
+
 var clientId = 'rpi1';
+
+
 
 var thingShadow = awsIot.thingShadow({
     keyPath: require('path').resolve(__dirname, './certs/rpi-private.pem.key'), //process.env.AWS_IOT_PRIVATE_KEY
