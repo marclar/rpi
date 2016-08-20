@@ -3,7 +3,7 @@
 console.log('\n\n\n');
 console.log('__dirname:', __dirname);
 var certPath = require('path').resolve(__dirname, './certs/rpi-private.pem.key');
-var file = requir('fs').readFileSync(certPath).toString();
+var file = require('fs').readFileSync(certPath).toString();
 console.log(file);
 console.log('\n\n\n');
 
