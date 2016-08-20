@@ -9,9 +9,9 @@ var log = console.log;
 var clientId = 'rpi1';
 
 var thingShadow = awsIot.thingShadow({
-    keyPath: '/home/pi/rpi/certs/rpi-private.pem.key', //process.env.AWS_IOT_PRIVATE_KEY
-    certPath: '/home/pi/rpi/certs/rpi-certificate.pem.crt', //process.env.AWS_IOT_CLIENT_CERT,
-    caPath: '/home/pi/rpi/certs/root-CA.pem', //process.env.AWS_IOT_CA_CERT,
+    keyPath: './certs/rpi-private.pem.key', //process.env.AWS_IOT_PRIVATE_KEY
+    certPath: './certs/rpi-certificate.pem.crt', //process.env.AWS_IOT_CLIENT_CERT,
+    caPath: './certs/root-CA.pem', //process.env.AWS_IOT_CA_CERT,
     clientId: clientId,
     thingName: clientId,
     region: 'us-east-1'
