@@ -1,5 +1,8 @@
 'use strict';
-//require('dotenv').load({silent: true});
+
+console.log('\n\n\n');
+console.log('__dirname:', __dirname);
+console.log('\n\n\n');
 
 var _ = require('lodash');
 var awsIot = require('aws-iot-device-sdk');
