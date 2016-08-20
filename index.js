@@ -1,12 +1,4 @@
 'use strict';
-
-console.log('\n\n\n');
-console.log('__dirname:', __dirname);
-var certPath = require('path').resolve(__dirname, './certs/rpi-private.pem.key');
-var file = require('fs').readFileSync(certPath).toString();
-console.log(file);
-console.log('\n\n\n');
-
 var _ = require('lodash');
 var awsIot = require('aws-iot-device-sdk');
 var ctrl = require('./ctrl');
@@ -15,9 +7,9 @@ var log = console.log;
 var clientId = 'rpi1';
 
 var thingShadow = awsIot.thingShadow({
-    keyPath: './certs/rpi-private.pem.key', //process.env.AWS_IOT_PRIVATE_KEY
-    certPath: './certs/rpi-certificate.pem.crt', //process.env.AWS_IOT_CLIENT_CERT,
-    caPath: './certs/root-CA.pem', //process.env.AWS_IOT_CA_CERT,
+    keyPath: require('path').resolve(__dirname, './certs/rpi-private.pem.key'), //process.env.AWS_IOT_PRIVATE_KEY
+    certPath: require('path').resolve(__dirname, './certs/rpi-certificate.pem.crt'), //process.env.AWS_IOT_CLIENT_CERT,
+    caPath: require('path').resolve(__dirname, './certs/root-CA.pem'), //process.env.AWS_IOT_CA_CERT,
     clientId: clientId,
     thingName: clientId,
     region: 'us-east-1'
